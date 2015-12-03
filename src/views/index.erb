@@ -1,1 +1,14 @@
-<h1> HELLO WORLD </h1>
+<form method='POST' action='/' enctype="multipart/form-data">
+  <input type='file' name='file' class='form-control'>
+  <button type='submit'> Add </button>
+</form>
+
+<br />
+
+<% @images.each do | img | %>
+    <img src='<%= img.image.url %>' style='width:100px'/>
+<% end %>
+
+<br />
+
+<%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>

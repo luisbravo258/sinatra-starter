@@ -1,0 +1,44 @@
+
+<h2> Image </h2>
+
+<img class='thumbnail' src='<%= @image.image.url %>' style='width:100px' />
+
+
+<h2> Comments </h2>
+
+<h3> Add New Comment </h3>
+<form method="POST">
+  <label for="">Title</label>
+  <input type="text" name="comment[commenter]" />
+  <br>
+  <label for="">Comment</label>
+  <textarea name="comment[comment]"></textarea>
+  <br>
+  <button type='submit'>Submit</button>
+</form>
+
+<% @image.comments.each do | current_comment | %>
+<article class="row">
+   <div class="col-md-2 col-sm-2 hidden-xs">
+     <figure class="thumbnail">
+       <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+       <figcaption class="text-center"><%= current_comment.commenter %></figcaption>
+     </figure>
+   </div>
+   <div class="col-md-10 col-sm-10">
+     <div class="panel panel-default arrow left">
+       <div class="panel-body">
+         <header class="text-left">
+           <div class="comment-user"><i class="fa fa-user"></i> <%= current_comment.commenter %></div>
+           <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= current_comment.created_at %></time>
+         </header>
+         <div class="comment-post">
+           <p>
+             <%= current_comment.comment %>
+           </p>
+         </div>
+       </div>
+     </div>
+   </div>
+</article>
+<% end %>

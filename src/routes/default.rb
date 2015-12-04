@@ -43,7 +43,16 @@ post "/" do
      img.caption = "This is the caption"
      img.user    = User.find(1)
      img.save!
+
+     #Save success message to the session
+      flash[:success] = "Successfully created new Todo Item"
+
+      #Save success message to the session
+      flash[:danger] = "There is an error with your data"
+
+
      redirect to("/")
+
  end
 
   get "/" do
@@ -64,6 +73,10 @@ post "/" do
     @comment = Comment.create! form_data
     erb :comment
   end
+
+  # get "/detail" do
+  #   erb :detail
+  # end
 
 
 end

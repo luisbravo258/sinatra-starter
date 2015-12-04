@@ -1,14 +1,62 @@
-<form method='POST' action='/' enctype="multipart/form-data">
+<!-- <form method='POST' action='/' enctype="multipart/form-data">
   <input type='file' name='file' class='form-control'>
   <button type='submit'> Add </button>
+</form> -->
+
+
+<form method='POST' action='/' enctype="multipart/form-data" style="border: solid 1px;">
+  <div class="form-group">
+    <label for="exampleInputFile"style="font-size: 30px;">Image input</label>
+    <input type="file" name='file' class='form-control' id="exampleInputFile">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 <br />
-
-<% @images.each do | img | %>
-    <img src='<%= img.image.url %>' style='width:100px'/>
-<% end %>
-
 <br />
 
+<!-- <div class="container-fluid">
+   <div class="row”>
+   <% @images.each do |img| %>
+     <h1>Image<h1>
+     <div class="col-md-6">
+         <div class="card">
+             <div class="card-image">
+                 <img src='<%= img.image.url %>' style='width:100px'/>
+             </div>
+
+             <div class="card-content">
+                 <span class="card-title">Material Cards</span>
+             </div>
+         </div>
+          <% end %>
+     </div>
+   </div>
+</div>
+
+<%= will_paginate @images , renderer: BootstrapPagination::Sinatra %> -->
+
 <%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>
+
+<div class="container-fluid">
+    <div class="row">
+      <% @images.each do |img| %>
+    <div class="col-sm-4 col-md-4">
+
+            <div class="post">
+                <div class="post-img-content thumbnail">
+                     <img src='<%= img.image.url %>' />
+                </div>
+                <div class="content">
+                    <div class="author">
+                        <time datetime="2014-01-20"></time>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+</div>

@@ -31,6 +31,7 @@ class MyApplication < Sinatra::Base
   set :sessions,  true
   set :session_secret, 'super secret'
 
+  register Sinatra::Flash 
   register WillPaginate::Sinatra
   register Sinatra::Auth
 

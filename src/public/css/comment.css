@@ -74,3 +74,13 @@
 .comment-list .comment-post {
   margin-top: 6px;
 }
+
+.h2, h2 {
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.h3,h3 {
+  text-align: center;
+}

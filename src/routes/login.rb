@@ -1,20 +1,23 @@
 class MyApplication < Sinatra::Base
 
-post "/login" do
-  @user = authenticate( params["username"] , params["password"] )
-  if authenticated?
-    redirect "/admin"
-  else
-    @error
-  end
-  redirect "/admin"
+    get "/login" do
+      erb :login
+    end
 
-end
+    post "/login" do
+      @user = authenticate( params["username"] , params["password"] )
+      if authenticated?
+        redirect "/admin/"
+      else
+        @success = false
+        erb :login
+      end
 
+    end
 
-get "/login" do
-  erb :login
-end
+    get "/logout" do
+      logout!
+    end
 
 end
 

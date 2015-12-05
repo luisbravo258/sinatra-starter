@@ -8,9 +8,18 @@
 </form> -->
 
 <div class="container">
+  <button type="button" name="Admin"><a href="<%= erb '/'  %>">HOME</a></button>
+
+
+<% if @success == false %>
+  <div class='alert alert-danger'>
+      Invalid username/password
+  </div>
+<% end %>
+
   <div class="row">
 
-<form class="form-horizontal" action="/login" method="post">
+<form class="form-horizontal" action="" method="post">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
     <div class="col-md-10">

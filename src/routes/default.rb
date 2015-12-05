@@ -1,47 +1,16 @@
 class MyApplication < Sinatra::Base
 
-  # get "/" do
-  #   erb :index
-  # end
 
-#   get "/upload" do
-#
-#     erb :upload
-#   end
-#
-#   post "/upload" do
-#     File.open('uploads/' + params['myfile'][:filename], "w") do |f|
-#       f.write(params['myfile'][:tempfile].read)
-#   end
-#
-#   return "The File was successfully uploaded"
-#
-#   end
-#
-#
-#   get "/contact" do
-#
-#     erb :contact
-#   end
-#
-# get "/signup" do
-#  erb :signup
-#  end
-#
-#   require 'pony'
-#   post '/signup' do
-#     Pony.mail :to => 'you@example.com',
-#               :from => 'me@example.com',
-#               :subject => 'Howdy, Partna!'
-#   end
-#
-# end
+get "/" do
+  @images = Image.paginate( page: params["page"] , per_page: 3 )
+  erb :index
+end
 
-post "/" do
+post "/user" do
      img = Image.new
      img.image   = params[:file]
      img.caption = "This is the caption"
-     img.user    = User.find(1)
+     img.user    = authenticated_user()
      img.save!
 
      #Save success message to the session
@@ -51,14 +20,14 @@ post "/" do
       flash[:danger] = "There is an error with your data"
 
 
-     redirect to("/")
+     redirect to("/user")
 
  end
 
-  get "/" do
+  get "/user" do
     #Get an instance of an Image
-    @images = Image.paginate( page: params["page"] , per_page: 10 )
-    erb :index
+    @images = Image.paginate( page: params["page"] , per_page: 3 )
+    erb :user
   end
 
   get "/comments/:id" do
@@ -73,10 +42,4 @@ post "/" do
     @comment = Comment.create! form_data
     erb :comment
   end
-
-  # get "/detail" do
-  #   erb :detail
-  # end
-
-
 end

@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <button type="button" name="Admin"><a href="<%= erb '/logout'  %>">logout</a></button>
+    <div class="col-md-12 logout-admin">
+      <a href="<%= erb '/'  %>">Home</a>
+      <a href="<%= erb '/logout'  %>">Logout</a>
     </div>
   </div>
 </div>
@@ -10,7 +11,7 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center-here">
       <h1>Hello Owner, Review you Comments and Images and Upload</h1>
     </div>
 
@@ -20,10 +21,10 @@
 
 <div class="container">
 <div class="col-md-12">
-  <div class="row">
-    <form method='POST' action='/user' enctype="multipart/form-data">
+  <div class="row upload-pic">
+    <form method='POST' action='/admin/' enctype="multipart/form-data">
       <div class="form-group">
-        <label for="exampleInputFile" style="font-size: 30px;">Image input</label>
+        <label for="exampleInputFile">Image input</label>
         <input type="file" name='file' class='form-control' id="exampleInputFile">
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
@@ -39,12 +40,15 @@
       <div class="media">
 
       	<a class="pull-left" href="">
-    		    <img class="media-object" src="<%= img.image.url %>" style="width: 192px;">
+    		    <img class="media-object" src="<%= img.image.url %>">
   		  </a>
+        <a class='btn btn-sm btn-danger' href='/delete/<%= img.image.url %>'>
+              <i class='glyphicon glyphicon-trash'></i>
+            </a>
 
     		<div class="media-body">
       		  <h4 class="media-heading">Image</h4>
-            <p class="text-right"></p>
+            <p class="text-center-here">Comment:</p>
             <% img.comments.each do | comment | %>
               <p><%= comment.comment %></p>
             <% end %>
@@ -57,6 +61,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>    </div>
+      <%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>
+    </div>
   </div>
 </div>

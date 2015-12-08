@@ -1,20 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <button type="button" name="Admin"><a href="<%= erb '/'  %>">DASH</a></button>
+    <div class="col-md-12 home-dash">
+      <a href="<%= erb '/'  %>">Home</a>
+      <a href="<%= erb '/admin/'  %>">User</a>
+      <a href="<%= erb '/login'  %>">Login</a>
+      <a href="<%= erb '/logout'  %>">Logout</a>
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
 <h2> Image </h2>
 
-<img class='thumbnail' src='<%= @image.image.url %>' style="width:500px;margin-left: auto;margin-right: auto;" />
+<img class='img-show' src='<%= @image.image.url %>' />
 
 
 <h2> Comments </h2>
 
 <h3> Add New Comment </h3>
 <form method="POST" style="text-align: center;">
-  <label for="">Title</label>
+  <label for="">Name</label>
   <input type="text" name="comment[commenter]" />
   <br>
   <label for="">Comment</label>
@@ -27,7 +35,6 @@
 <article class="row">
    <div class="col-md-2 col-sm-2 hidden-xs">
      <figure class="thumbnail">
-       <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
        <figcaption class="text-center"><%= current_comment.commenter %></figcaption>
      </figure>
    </div>
@@ -48,3 +55,7 @@
    </div>
 </article>
 <% end %>
+
+</div>
+</div>
+</div>

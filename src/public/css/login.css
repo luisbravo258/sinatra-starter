@@ -1,12 +1,14 @@
 body {
-  background-color:#fff;
+  background-color:#9E9E9E;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
-  font: normal 14px Roboto,arial,sans-serif;
+  font: sans-serif;
+  color: white;
 }
 
 .container {
-    padding: 25px;
-  
+    margin: auto;
+
 }
 
 .form-login {
@@ -22,16 +24,53 @@ body {
 }
 
 h4 {
- border:0 solid #fff;
- border-bottom-width:1px;
- padding-bottom:10px;
- text-align: center;
+   border:0 solid #fff;
+   border-bottom-width:1px;
+   padding-bottom:10px;
+   text-align: center;
 }
 
 .form-control {
     border-radius: 10px;
+    background-color: rgba(255,255,255,0.88);
 }
 
 .wrapper {
     text-align: center;
+}
+
+.form-horizontal {
+  margin-top: 70px;
+  color: white;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.btn-default {
+    color: black;
+    background-color: white;
+    border-color: #ccc;
+  }
+
+a {
+    color: white;
+  }
+
+.login-home{
+  text-align: right;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-size: x-large;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.form-line {
+  margin-top: 100px;
+}
+
+.welcome-text {
+  text-align: center;
+  font-size: 40px;
 }

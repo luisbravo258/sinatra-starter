@@ -1,35 +1,33 @@
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center">Welcome, Enjoy! </h1>
-      <h3>Open Your world of Creativity</h3>
-      <button type="button" name="Admin"><a href="<%= erb '/login'  %>">login</a></button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="button-login">
+          <a href="<%= erb '/'  %>">Home</a>
+          <a href="<%= erb '/admin/'  %>">User</a>
+          <a href="<%= erb '/login'  %>">Login</a>
+            <a href="<%= erb '/logout'  %>">Logout</a>
+        <h1 class="text-center-here">Welcome, Home!</h1>
+        <h3>Open Your world of Creativity</h3>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-
-            <div class="container">
-              <div class="row">
-                  <% @images.each do |img| %>
-                <div class="col-sm-4 col-md-4">
-                    <div class="thumbnail" style="width: 350px;">
-                      <a href="/comments/<%= img.id%>">
-                      <img src='<%= img.image.url %>' />
-                      </a>
-                    </div>
-                </div>
-                  <% end %>
-              </div>
+    <div class="container">
+      <div class="row">
+          <% @images.each do |img| %>
+        <div class="col-md-4">
+            <div class="pic-dash">
+              <a href="/comments/<%= img.id%>">
+              <img src='<%= img.image.url %>' />
+              </a>
             </div>
-            <div class="text-center">
-              <%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>
-            </div>
+        </div>
+          <% end %>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="text-center">
+      <%= will_paginate @images , renderer: BootstrapPagination::Sinatra %>
+    </div>

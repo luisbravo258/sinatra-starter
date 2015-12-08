@@ -2,11 +2,11 @@ class MyApplication < Sinatra::Base
 
 
 get "/" do
-  @images = Image.paginate( page: params["page"] , per_page: 3 )
+  @images = Image.paginate( page: params["page"] , per_page: 9 )
   erb :index
 end
 
-post "/user" do
+post "/admin/" do
      img = Image.new
      img.image   = params[:file]
      img.caption = "This is the caption"
@@ -20,14 +20,21 @@ post "/user" do
       flash[:danger] = "There is an error with your data"
 
 
-     redirect to("/user")
+     redirect to("/admin/")
 
  end
 
-  get "/user" do
+  get "/admin/" do
     #Get an instance of an Image
-    @images = Image.paginate( page: params["page"] , per_page: 3 )
+    @image = Image.paginate( page: params["page"] , per_page: 3 )
     erb :user
+  end
+
+  get "/image/:id/delete" do
+    @images = Image.find(params[:id])
+    @image.destroy!
+    flash[:success] = "Successfully Deleted Image"
+    redirect "/admin/"
   end
 
   get "/comments/:id" do

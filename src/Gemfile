@@ -14,11 +14,10 @@ gem 'pony'
 gem "fog"
 gem "fog-aws"
 gem 'carrierwave'
+gem 'thin'
 
 group :development do
-  gem 'thin'
   gem 'pry'
   gem 'pry-byebug'
   gem 'shotgun'
-
 end

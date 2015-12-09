@@ -10,12 +10,62 @@
       <link rel='stylesheet' href='/css/login.css'></link>
       <link rel='stylesheet' href='/css/detail.css'></link>
 
-
   </head>
   <body>
 
+      <!-- HEADER -->
+      <header id='header'>
+          <div id='brand'>
+            <a href="/">
+              SimPlixel
+            </a>
+          </div>
+          <nav id='main-menu'>
+              <ul>
+                  <li>
+                    <a href="/">
+                      Home
+                    </a>
+                  </li>
+                  <% if !authenticated? %>
+                  <li>
+                    <a href="/login">
+                      Login
+                    </a>
+                  </li>
+                  <% end %>
+                  <% if authenticated? %>
+                  <li>
+                    <a href="/admin/">
+                      Admin
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout">
+                      Logout
+                    </a>
+                  </li>
+                  <% end %>
+              </ul>
+          </nav>
+      </header>
+      <!-- HEADER -->
+
+      <!-- HERO -->
+      <section id='hero'>
+
+        <div class='message'>
+          <h2>Welcome, Home!</h2>
+          <h3>Open Your world of Creativity</h3>
+        </div>
+
+      </section>
+      <!-- HERO -->
+
       <!-- MAIN CONTENT -->
+      <main>
       <%= yield %>
+      </main>
       <!-- MAIN CONTENT -->
 
   </body>

@@ -5,7 +5,7 @@ class MyApplication < Sinatra::Base
   end
 
   get "/admin/" do
-    @images = Image.paginate( page: params["page"] , per_page: 3 ).includes(:comments).where( user: authenticated_user )
+    @images = Image.paginate( page: params["page"] , per_page: 16 ).includes(:comments).where( user: authenticated_user )
     erb :admin
 
   end

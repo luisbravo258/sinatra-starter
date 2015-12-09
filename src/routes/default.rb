@@ -2,7 +2,7 @@ class MyApplication < Sinatra::Base
 
 
 get "/" do
-  @images = Image.paginate( page: params["page"] , per_page: 9 )
+  @images = Image.paginate( page: params["page"] , per_page: 16 )
   erb :index
 end
 

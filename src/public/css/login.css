@@ -1,16 +1,3 @@
-body {
-  background-color:#9E9E9E;
-  background-size: cover;
-  -webkit-font-smoothing: antialiased;
-  font: sans-serif;
-  color: white;
-}
-
-.container {
-    margin: auto;
-
-}
-
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
@@ -52,9 +39,6 @@ h4 {
     border-color: #ccc;
   }
 
-a {
-    color: white;
-  }
 
 .login-home{
   text-align: right;

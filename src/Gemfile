@@ -11,6 +11,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'pg'
 gem 'pony'
+gem "fog"
+gem "fog-aws"
 gem 'carrierwave'
 
 group :development do

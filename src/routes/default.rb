@@ -31,8 +31,8 @@ post "/admin/" do
   end
 
   get "/image/:id/delete" do
-    @images = Image.find(params[:id])
-    @image.destroy!
+    @image = Image.find(params[:id])
+    @image.destroy
     flash[:success] = "Successfully Deleted Image"
     redirect "/admin/"
   end

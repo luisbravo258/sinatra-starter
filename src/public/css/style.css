@@ -93,14 +93,6 @@ body {
       font-weight: 700;
     }
 
-  .pic-dash:hover {
-    -webkit-transform:scale(.25); /* Safari and Chrome */
-    -moz-transform:scale(.25); /* Firefox */
-    -ms-transform:scale(.25); /* IE 9 */
-    -o-transform:scale(.25); /* Opera */
-     transform:scale(.25);
-  }
-
   .pic-dash img{
     margin-bottom: 10px;
     display: block;
